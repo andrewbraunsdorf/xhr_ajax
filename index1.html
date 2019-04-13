@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id='loadTextFile'>Click here to load file</button>
+        <div id= 'loadTextHere'></div>
+    </div>
+    <script>
+        document.getElementById('loadTextFile').addEventListener('click', loadText);
+        
+        function loadText() {
+            var xhrCall = new XMLHttpRequest();
+            
+            
+            
+            xhrCall.open('GET', 'file1.txt', true);
+            
+            //onload check the readystate automatically, but not the status
+            xhrCall.onload = function(){
+                
+                    var data = (this.responseText);
+                    console.log(data);
+                
+            }
+            // console.log(xhrCall);
+            
+            xhrCall.send();
+            
+            // console.log('The button was clicked!');
+        }
+        
+    </script>
+</body>
+</html>
